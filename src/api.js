@@ -1,3 +1,2 @@
-const API_URL = "http://127.0.0.1:10000";
-
+const API_URL = "https://auli-backend.onrender.com";
 export default API_URL;
