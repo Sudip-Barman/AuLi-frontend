@@ -1,0 +1,105 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* =========================================
+   AuLi GLOBAL COLOR SYSTEM
+========================================= */
+
+:root {
+
+  /* MAIN BACKGROUND */
+
+  --bg: #0f1117;
+
+  /* SURFACE COLORS */
+
+  --surface: #171923;
+  --surface-2: #1d2130;
+  --surface-3: #222738;
+
+  /* PRIMARY BRAND */
+
+  --primary: #7c5cff;
+  --primary-light: #9f8bff;
+  --primary-dark: #5c3dff;
+
+  /* SECONDARY ACCENT */
+
+  --secondary: #5f7cff;
+
+  /* TEXT */
+
+  --text: #f5f7ff;
+  --muted: #98a2b3;
+
+  /* BORDERS */
+
+  --border: rgba(255, 255, 255, 0.08);
+
+  /* STATUS COLORS */
+
+  --success: #22c55e;
+  --warning: #facc15;
+  --danger: #ef4444;
+
+  /* GLOW EFFECTS */
+
+  --primary-glow:
+    rgba(124, 92, 255, 0.18);
+
+  --secondary-glow:
+    rgba(95, 124, 255, 0.14);
+}
+
+/* GLOBAL */
+
+body {
+  font-family: Arial, sans-serif;
+
+  background: var(--bg);
+  color: var(--text);
+
+  overflow: hidden;
+}
+
+button {
+  border: none;
+  outline: none;
+
+  cursor: pointer;
+
+  font-family: inherit;
+}
+
+input {
+  border: none;
+  outline: none;
+
+  font-family: inherit;
+}
+
+#root {
+  min-height: 100vh;
+}
+.light-mode {
+
+  --bg: #f8fafc;
+
+  --surface: #ffffff;
+  --surface-2: #f1f5f9;
+  --surface-3: #e2e8f0;
+
+  --text: #111827;
+  --muted: #6b7280;
+
+  --border: rgba(0,0,0,0.08);
+
+  --primary-glow:
+    rgba(124,92,255,0.12);
+
+  --secondary-glow:
+    rgba(95,124,255,0.10);
+}
