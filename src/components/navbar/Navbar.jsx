@@ -14,6 +14,7 @@ function Navbar({
   const [settingsOpen, setSettingsOpen] = useState(false);
 
   const settingsRef = useRef(null);
+  const token = localStorage.getItem("token");
     const navigate = useNavigate();
   const handleToggle = () => {
     setSidebarOpen(prev => !prev);
@@ -81,9 +82,22 @@ useEffect(() => {
       {/* RIGHT */}
       <div className="navbar-right">
 
-        <button className="icon-btn">
-          🔔
+        {!token ? (
+
+        <button
+            className="login-btn"
+            onClick={() => navigate("/login")}
+        >
+            Login
         </button>
+
+        ) : (
+
+        <button className="icon-btn">
+            🔔
+        </button>
+
+        )}
 
         {/* SETTINGS */}
 <div className="settings-wrapper" ref={settingsRef}>
@@ -145,18 +159,22 @@ useEffect(() => {
         ⚡ App Settings
       </button>
 
+                {token && (
+
         <button
-        className="settings-item logout"
-        onClick={() => {
+            className="settings-item logout"
+            onClick={() => {
 
             localStorage.removeItem("token");
             localStorage.removeItem("user");
 
             window.location.href = "/";
-        }}
+            }}
         >
-        🚪 Logout
+            🚪 Logout
         </button>
+
+        )}
 
     </div>
 

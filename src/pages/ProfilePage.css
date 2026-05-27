@@ -211,3 +211,142 @@
   }
 
 }
+
+.guest-profile-page {
+
+  width: 100%;
+
+  min-height: 80vh;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  padding: 30px;
+
+}
+
+.guest-profile-card {
+
+  width: 100%;
+
+  max-width: 420px;
+
+  background: var(--surface-2);
+
+  border: 1px solid var(--border);
+
+  border-radius: 22px;
+
+  padding: 32px;
+
+  text-align: center;
+
+  box-shadow:
+    0 0 30px var(--primary-glow);
+
+}
+
+.guest-profile-card h2 {
+
+  margin-bottom: 14px;
+
+  font-size: 28px;
+
+}
+
+.guest-profile-card p {
+
+  color: var(--muted);
+
+  line-height: 1.6;
+
+  margin-bottom: 24px;
+
+}
+.return-home-btn {
+  margin-top: 12px;
+  padding: 10px 18px;
+  border: none;
+  border-radius: 10px;
+  background: #222;
+  color: white;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.return-home-btn:hover {
+  opacity: 0.9;
+  transform: translateY(-1px);
+}
+.guest-actions {
+
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 12px;
+
+  margin-top: 24px;
+
+}
+
+.login-btn,
+.signup-btn,
+.return-home-btn {
+
+  width: 100%;
+
+  padding: 14px;
+
+  border: none;
+
+  border-radius: 14px;
+
+  cursor: pointer;
+
+  font-size: 15px;
+
+  font-weight: 600;
+
+  transition: 0.2s ease;
+
+}
+
+.login-btn {
+
+  background: var(--primary);
+
+  color: white;
+
+}
+
+.signup-btn {
+
+  background: var(--surface-3);
+
+  color: var(--text);
+
+}
+
+.return-home-btn {
+
+  background: transparent;
+
+  border: 1px solid var(--border);
+
+  color: var(--muted);
+
+}
+
+.login-btn:hover,
+.signup-btn:hover,
+.return-home-btn:hover {
+
+  transform: translateY(-2px);
+
+  opacity: 0.95;
+
+}

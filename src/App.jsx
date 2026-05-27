@@ -9,7 +9,7 @@ import MainLayout from "./components/layout/MainLayout";
 import Login from "./pages/Login";
 import Signup from "./pages/Signup";
 import ProfilePage from "./pages/ProfilePage";
-
+import LandingPage from "./pages/LandingPage";
 function ProtectedRoute({ children }) {
 
   const token = localStorage.getItem("token");
@@ -29,16 +29,17 @@ function App() {
       <Routes>
 
         {/* PUBLIC */}
-        <Route path="/" element={<Login />} />
+        <Route path="/" element={<LandingPage />} />
+        <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<Signup />} />
 
         {/* PROTECTED */}
         <Route
           path="/chat"
           element={
-            <ProtectedRoute>
+            // <ProtectedRoute>
               <MainLayout />
-            </ProtectedRoute>
+            // </ProtectedRoute>
           }
         />
 

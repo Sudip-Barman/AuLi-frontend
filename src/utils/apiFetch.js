@@ -1,4 +1,8 @@
-import { getToken, logout } from "./auth";
+import {
+  getToken,
+  logout,
+  getGuestToken
+} from "./auth";
 
 export async function apiFetch(url, options = {}) {
 
@@ -11,9 +15,16 @@ export async function apiFetch(url, options = {}) {
     ...(options.headers || {}),
   };
 
-  if (token) {
-    headers.Authorization = `Bearer ${token}`;
-  }
+ if (token) {
+
+  headers.Authorization =
+    `Bearer ${token}`;
+
+} else {
+
+  headers["X-Guest-Token"] =
+    getGuestToken();
+}
 
   try {
 

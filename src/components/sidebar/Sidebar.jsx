@@ -76,6 +76,13 @@ function Sidebar({
 
   useEffect(() => {
 
+      // skip for guests
+    if (!token) {
+
+        setConversations([]);
+        return;
+
+    }
     fetch(`${API_URL}/conversations`, {
 
       headers: {
@@ -181,14 +188,34 @@ function Sidebar({
         {/* REAL CONVERSATIONS */}
 
         <div className="subjects">
+          {!token && sidebarOpen && (
 
+            <div className="guest-warning">
+
+                <h4>Guest Mode</h4>
+
+                <p>
+                Login to save chats permanently
+                and sync across devices.
+                </p>
+
+                <button
+                className="guest-login-btn"
+                onClick={() => navigate("/login")}
+                >
+                Login Now
+                </button>
+
+            </div>
+
+            )}
           {conversations.map((conversation) => (
 
             <div
-  key={conversation.id}
-  className="subject-folder"
-  data-label={conversation.title}
->
+            key={conversation.id}
+            className="subject-folder"
+            data-label={conversation.title}
+            >
 
   <div
     className="conversation-main"

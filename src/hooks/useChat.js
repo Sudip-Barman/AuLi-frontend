@@ -29,7 +29,7 @@ function useChat(
   // =========================
   useEffect(() => {
     if (!activeConversationId) return;
-    if (!token) return;
+    // if (!token) return;
 
     const fetchConversation = async () => {
       try {
@@ -55,7 +55,7 @@ function useChat(
   // SEND MESSAGE
   // =========================
   const sendMessage = async () => {
-    if (!token) return;
+    // if (!token) return;
     if ((!input.trim() && !selectedPdf) || loading) return;
 
     setLoading(true);
@@ -110,7 +110,7 @@ function useChat(
       let currentConversationId =
         activeConversationId || conversationId;
 
-      if (!currentConversationId) {
+      if (token && !currentConversationId) {
         const convoRes = await apiFetch(
           `${API_URL}/conversation/create`,
           {
@@ -146,7 +146,9 @@ function useChat(
           message: currentInput,
           history: newHistory,
           pdfText: extractedPdfText,
-          conversation_id: currentConversationId,
+          conversation_id: token
+                    ? currentConversationId
+                    : null,
            mode: activeMode,
         }),
       });

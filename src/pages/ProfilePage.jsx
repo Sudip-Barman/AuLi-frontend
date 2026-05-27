@@ -1,12 +1,13 @@
 import { useEffect, useState } from "react";
 import "./ProfilePage.css";
 import API_URL from "../api";
-
+import { useNavigate } from "react-router-dom";
 function ProfilePage() {
 
   const [user, setUser] = useState(null);
   const [usageData, setUsageData] = useState([]);
-
+  const token = localStorage.getItem("token");
+  const navigate = useNavigate();
   useEffect(() => {
 
     const fetchProfile = async () => {
@@ -85,7 +86,52 @@ function ProfilePage() {
     );
 
   }
+if (!token) {
 
+  return (
+
+    <div className="guest-profile-page">
+
+      <div className="guest-profile-card">
+
+        <h2>Guest Mode Active 👋</h2>
+
+        <p>
+          Login to save chats, track progress,
+          and continue learning later.
+        </p>
+
+        <div className="guest-actions">
+
+          <button
+            className="login-btn"
+            onClick={() => navigate("/login")}
+          >
+            Login
+          </button>
+
+          <button
+            className="signup-btn"
+            onClick={() => navigate("/signup")}
+          >
+            Sign Up
+          </button>
+
+          <button
+            className="return-home-btn"
+            onClick={() => navigate("/")}
+          >
+            ← Return Home
+          </button>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  );
+}
   return (
 
     <div className="profile-container">

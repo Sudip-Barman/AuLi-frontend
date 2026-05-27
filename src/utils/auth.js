@@ -21,3 +21,24 @@ export function isLoggedIn() {
 
   return token && token !== "undefined" && token !== "null";
 }
+
+export function getGuestToken() {
+
+  let guestToken =
+    localStorage.getItem("guest_token");
+
+  if (!guestToken) {
+
+    guestToken =
+      "guest_" +
+      Math.random().toString(36).slice(2) +
+      Date.now();
+
+    localStorage.setItem(
+      "guest_token",
+      guestToken
+    );
+  }
+
+  return guestToken;
+}
